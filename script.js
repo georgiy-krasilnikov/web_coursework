@@ -1,0 +1,10 @@
+function SwapBackground(a_id, li_id) {
+    let a = document.getElementById(a_id);
+    let li = document.getElementById(li_id);
+    a.style.color = 'black';
+    a.style.background = 'white';
+    a.style.borderBottom = '2px solid white';
+    a.style.padding = '5px 10px';
+    a.style.borderRadius = '15px';
+    li.style.padding = li_id == '1' && a_id == '1.1' ? '0px 40px 0px 90px' : li.style.padding = '0px 40px 0px 30px';
+}
