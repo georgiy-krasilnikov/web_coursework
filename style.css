@@ -100,51 +100,9 @@ body div.main_page p:last-child {
   margin-bottom: 4px;
 }
 
-[data-tooltip] {
-  position: relative;
-}
-
-[data-tooltip]::after {
-  position: absolute;
-  content: attr(data-tooltip);
-  opacity: 0;
-  transition: 1s;
-  pointer-events: none;
-  left: 822.5px;
-  top: 37.5px;
-  background: #339af0;
-  color: white;
-  padding: 5px;
-}
-
-[data-tooltip]:hover::after {
-  opacity: 1;
-}
-
-footer {
-  margin: 0 0 -8px -8px;
-  width: 1263px;
-  height: 100px;
-  background-image: url(bottom.jpg);
-  border-top: 4px solid white;
-}
-
-footer img {
-  position: absolute;
-  display: inline-block;
-  margin: 25px 0 0 25px;
-  width: 200px;
-  height: 50px;
-}
-
-footer div.footer_menu {
-  margin-left: 210px;
-  color: white;
-}
-
 body div.list {
   position: relative;
-  margin: 0 0 -8px -8px;
+  margin-left: -8px;
 }
 
 body div.list div.menu {
@@ -157,7 +115,8 @@ body div.list div.menu li {
   margin-right: -8px;
   text-align: justify;
   margin-bottom: 120px;
-  padding: 2px 20px;;
+  padding: 2px 20px;
+  ;
 }
 
 body div.list div.menu li:hover {
@@ -186,6 +145,62 @@ body div.list div.menu li img {
 
 body div.list div.menu h4 {
   padding: 15px 0 15px 100px;
+}
+
+body div.about p {
+  text-align: justify;
+  text-indent: 30px;
+  color: black;
+}
+
+body div.about div.reasons img {
+  width: 175px;
+  height: 175px;
+  position: absolute;
+  right: 540px;
+  top: 1320px;
+}
+
+footer {
+  margin: 0 0 -8px -8px;
+  width: 1263px;
+  height: 100px;
+  background-image: url(bottom.jpg);
+  border-top: 4px solid white;
+}
+
+footer img {
+  position: absolute;
+  display: inline-block;
+  margin: 25px 0 0 25px;
+  width: 200px;
+  height: 50px;
+}
+
+footer div.footer_menu {
+  margin-left: 210px;
+  color: white;
+}
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  position: absolute;
+  content: attr(data-tooltip);
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+  left: 822.5px;
+  top: 37.5px;
+  background: #339af0;
+  color: white;
+  padding: 5px;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
 }
 
 
