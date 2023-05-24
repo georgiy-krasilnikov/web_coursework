@@ -69,7 +69,7 @@ header div.header_menu a:hover {
 }
 
 body div.main_page {
-  background: url(orange_back.jpg);
+  background: url(img/orange_back.jpg);
   width: 1263px;
   margin-left: -8px;
 }
@@ -116,7 +116,6 @@ body div.list div.menu li {
   text-align: justify;
   margin-bottom: 120px;
   padding: 2px 20px;
-  ;
 }
 
 body div.list div.menu li:hover {
@@ -161,11 +160,32 @@ body div.about div.reasons img {
   top: 1320px;
 }
 
+body div.news div.block {
+  width: 550px;
+  border-top: solid 5px black;
+  border-bottom: solid 5px black;
+}
+
+body div.news div.block h4 {
+  margin: 20px 15px;
+  padding: 10px;
+  display: inline-block;
+  border-top: solid 3px black;
+  border-bottom: solid 3px black;
+  text-align: center;
+}
+
+body div.news div p {
+  padding: 0 15px;
+  color: black;
+  text-align: justify;
+}
+
 footer {
   margin: 0 0 -8px -8px;
   width: 1263px;
   height: 100px;
-  background-image: url(bottom.jpg);
+  background-image: url(img/bottom.jpg);
   border-top: 4px solid white;
 }
 
@@ -202,8 +222,3 @@ footer div.footer_menu {
 [data-tooltip]:hover::after {
   opacity: 1;
 }
-
-
-
-
-
