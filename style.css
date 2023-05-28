@@ -146,7 +146,7 @@ body div.list div.menu h4 {
   padding: 15px 0 15px 100px;
 }
 
-body div.about p {
+body div.about p, body div.school p {
   text-align: justify;
   text-indent: 30px;
   color: black;
@@ -176,10 +176,84 @@ body div.news div.block h4 {
 }
 
 body div.news div p {
+  text-indent: 30px;
   padding: 0 15px;
   color: black;
   text-align: justify;
 }
+
+body div.mailing button {
+  width: 125px;
+  height: 35px;
+  border-radius: 20px;
+  border: 4px solid #917de3;
+}
+
+body div.right_menu {
+  margin-top: -40px;
+  position: relative;
+  margin-left: 1180px;
+  height: 100%;
+  width: 75px;
+  background: #90cc54;
+}
+
+body div.right_menu ul {
+  margin: 0 0 20px -34px;
+}
+
+body div.right_menu ul li img {
+  position: absolute;
+}
+
+body div.right_menu ul li .a_block {
+  opacity: 0;
+  width: 250px;
+  height: 41.5px;
+  background: #cfcfcf;
+  margin-left: -256px;
+  padding-top: 22px;
+  position: relative;
+  text-align: center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+body div.school table.table {
+	width: 100%;
+	border: 2px solid black;
+	margin-bottom: 20px;
+}
+
+body div.school table.table thead th {
+	font-weight: bold;
+	text-align: center;
+	border: none;
+	padding: 10px 15px;
+	background: #d8d8d8;
+	font-size: 14px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+
+body div.school table.table tbody td {
+	text-align: center;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: center;
+}
+
+body div.school table.table thead tr th:first-child, body div.school table.table tbody tr td:first-child {
+	border-left: none;
+}
+
+body div.school table.table thead tr th:last-child, body div.school table.table tbody tr td:last-child {
+	border-right: none;
+}
+
 
 footer {
   margin: 0 0 -8px -8px;

@@ -8,7 +8,7 @@
   </head>
   <!-- описание класса header - шапки веб-сайта -->
   <header>
-    <a href="index.html"><img src="DIA.png" /></a>
+    <a href="index.html"><img src="img/DIA.png" /></a>
     <!-- логотип, при нажатии на который можно перейти на гл. стр. -->
     <div class="header_menu">
       <!-- меню в шапке сайта -->
@@ -21,11 +21,69 @@
   </header>
 
   <body>
+    <img src="img/school.jpg" style="width: 800px; position: absolute; left: 175px;">
+    <div class="right_menu">
+      <ul style="margin: 0 0 20px -34px;">
+        <li style="padding-top: 40px; margin:  40px 0 80px;"><img src="img/control.png" onmouseover="HiddenBlock('onmouseover', 'ctrl')" onmouseout="HiddenBlock('onmouseout', 'ctrl')"><div id="ctrl" class="a_block" onmouseover="HiddenBlock('onmouseover', 'ctrl')" onmouseout="HiddenBlock('onmouseout', 'ctrl')"><a href="#1">Самоконтроль</a></div></li>
+        <li style="margin: 80px 0;"><img src="img/diet.png" onmouseover="HiddenBlock('onmouseover', 'food')" onmouseout="HiddenBlock('onmouseout', 'food')"><div id="food" class="a_block" onmouseover="HiddenBlock('onmouseover', 'food')" onmouseout="HiddenBlock('onmouseout', 'food')"><a>Питание</a></div></li>
+        <li style="margin: 80px 0;"><img src="img/cardio.png" onmouseover="HiddenBlock('onmouseover', 'sport')" onmouseout="HiddenBlock('onmouseout', 'sport')"><div id="sport" class="a_block" onmouseover="HiddenBlock('onmouseover', 'sport')" onmouseout="HiddenBlock('onmouseout', 'sport')"><a>Физическая активность</a></div></li>
+        <li style="margin: 80px 0;"><img src="img/ins.png" onmouseover="HiddenBlock('onmouseover', 'ins')" onmouseout="HiddenBlock('onmouseout', 'ins')"><div id="ins" class="a_block" onmouseover="HiddenBlock('onmouseover', 'ins')" onmouseout="HiddenBlock('onmouseout', 'ins')"><a>Инсулинотерапия</a></div></li>
+        <li style="margin: 80px 0;"><img src="img/hypo.png" onmouseover="HiddenBlock('onmouseover', 'hypo')" onmouseout="HiddenBlock('onmouseout', 'hypo')"><div id="hypo" class="a_block" onmouseover="HiddenBlock('onmouseover', 'hypo')" onmouseout="HiddenBlock('onmouseout', 'hypo')"><a>Гипогликемия: что это?</a></div></li>
+      </ul>
+    </div>
 
+    <div class="school" style="margin-left: 15px;">
+      <h2 id="1">Самоконтроль</h2>
+      <p>Под самоконтролем понимают анализ некоторых параметров в домашних условиях: самостоятельное определение уровня сахара в крови и моче, кетоновых тел (ацетона) в моче, измерение веса и артериального давления.
+        Ценность результатов, полученных при самоконтроле в домашних условиях, гораздо выше, поскольку они отражают ваше состояние в условиях реальной жизни.
+        Проведение самоконтроля позволит Вам:
+        <ol>
+          <li>Оценить эффективность подобранного лечения;</li>
+          <li>Самостоятельно или при помощи врача произвести своевременную коррекцию доз инсулина, внести изменения в рацион питания и физическую активность;</li>
+          <li>Оценить, как сделанные изменения влияют на управление сахарным диабетом;</li>
+          <li>Стать активным участником лечебного процесса, понимать, что с вами происходит и управлять ситуацией.</li>
+        </ol>
+      </p>
+
+      <h4>Дневник самоконтроля</h4>
+      <p>Все показатели, полученные при самоконтроле, а также информацию, касающуюся вашего рациона питания, физической активности и получаемой терапии, необходимо заносить
+        в <i>Дневник самоконтроля</i> и показывать врачу при каждом посещении. Существуют программы, позволяющие считывать показания с вашего глюкометра в компьютер, добавлять
+        туда другую информацию, и таким образом вести электронный дневник.</p>
+      <h4>Контроль уровня глюкозы в крови</h4>
+      <p>Основной целью управления сахарным диабетом является достижение <i>целевых показателей</i> уровня глюкозы в крови и <i>гликированного гемоглобина</i>,
+        отражающего «средний» уровень глюкозы в крови за 2-3 месяца, чтобы не допустить развития осложнений сахарного диабета. Индивидуальную цель лечения
+        (гликированный гемоглобин и уровень глюкозы натощак и после еды) Вы подбираете вместе с вашим врачом, она будет зависеть от нескольких условий:
+        длительности заболевания и наличия осложнений, возраста и сопутствующих заболеваний и т.д. В большинстве случаев оптимальной целью является уровень гликированного гемоглобина < 7%.</p>
+      <table class="table">
+        <thead>
+		      <tr>
+			      <th>Категория</th>
+			      <th>Уровень глюкозы утром</th>
+			      <th>Уровень глюкозы до приема пищи</th>
+			      <th>Уровень глюкозы спустя минимум 90 минут после приема пищи</th>
+		      </tr>
+	      </thead>
+
+        <tbody>
+		      <tr>
+			      <td>Здоровый человек</td>
+			      <td> </td>
+			      <td>4.0-5.9 ммоль/л</td>
+			      <td>до 7.8 ммоль/л</td>
+		      </tr>
+		      <tr>
+			      <td>Человек с сахарным диабетом 1 типа</td>
+			      <td>4.5-7 ммоль/л</td>
+			      <td>4.5-7 ммоль/л</td>
+			      <td>5-9 ммоль/л</td>
+		      </tr>
+        </tbody>
+      </table>
+    </div>
     
     <footer>
       <!-- низ страницы -->
-      <img src="DIA.png" />
+      <img src="img/DIA.png" />
       <div class="footer_menu">
         <ul style="padding-top: 11px">
           <li>Наш телефон: 8 800 55-35-35</li>
@@ -34,13 +92,13 @@
         <h3 style="margin: -50px 0 0 400px;">Присоединяйтесь к нам в социальных сетях:</h3>
         <ul style="margin: -60px 0 0 745px">
           <li style="display: inline; padding-left: 50px">
-            <a href=""><img src="tg.png" style="width: 48px; height: 48px" /></a>
+            <a href=""><img src="img/tg.png" style="width: 48px; height: 48px" /></a>
           </li>
           <li style="display: inline; padding-left: 50px">
-            <a href=""><img src="vk.png" style="width: 48px; height: 48px" /></a>
+            <a href=""><img src="img/vk.png" style="width: 48px; height: 48px" /></a>
           </li>
           <li style="display: inline; padding-left: 50px">
-            <a href=""><img src="fb.png" style="width: 48px; height: 48px" /></a>
+            <a href=""><img src="img/fb.png" style="width: 48px; height: 48px" /></a>
           </li>
         </ul>
       </div>
