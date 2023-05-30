@@ -269,14 +269,6 @@ body div.school table.table tbody tr td:last-child {
   border-right: none;
 }
 
-body div.school img {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  right: 50px;
-  top: 1700px;
-}
-
 footer {
   margin: 0 0 -8px -8px;
   width: 1263px;
