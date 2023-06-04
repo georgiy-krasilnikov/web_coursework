@@ -26,3 +26,16 @@ function ShowForm(el_id) {
   let el = document.getElementById(el_id);
   el.style.display = "block";
 }
+
+// function SendForm() {
+//   const separator = ";";
+//   let name = document.getElementById("name").value;
+//   let email = document.getElementById("email").value;
+
+//   writeFileSync(
+//     "../data/data.csv",
+//     exampleData.map((row) => `${row.name}${separator}${row.age}`).join("\n")
+//   );
+
+//   let body = { name: name, email: email };
+// }

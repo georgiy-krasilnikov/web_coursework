@@ -5,10 +5,14 @@
     <title>Сайт о диабете</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js"></script>
+    <script src="js/file.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script> -->
   </head>
   <!-- описание класса header - шапки веб-сайта -->
   <header>
-    <a href="/"><img src="img/DIA.png" /></a>
+    <a href="/" id="0"><img src="img/DIA.png" /></a>
     <!-- логотип, при нажатии на который можно перейти на гл. стр. -->
     <div class="header_menu">
       <!-- меню в шапке сайта -->
@@ -26,7 +30,63 @@
       </ul>
     </div>
   </header>
+  <script>
+    function SendRequest(r_method, r_path, r_handler) {
+      var Request = new XMLHttpRequest();
+      Request.onreadystatechange = function () {
+        //Если обмен данными завершен
+        if (Request.readyState == 4) {
+          //Передаем управление обработчику пользователя
+          r_handler(Request);
+        }
+      };
 
+      // if (r_method.toLowerCase() == "get" && r_args.length > 0)
+      //   r_path += "?" + r_args;
+
+      //Инициализируем соединение
+      Request.open(r_method, r_path, true);
+
+      if (r_method.toLowerCase() == "post") {
+        //Если это POST-запрос
+
+        //Устанавливаем заголовок
+        Request.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded; charset=utf-8"
+        );
+        //Посылаем запрос
+        Request.send(r_args);
+      } else {
+        //Если это GET-запрос
+
+        //Посылаем нуль-запрос
+        Request.send(null);
+      }
+    }
+
+    function ReadForm(filename) {
+      //Создаем функцию обработчик
+      var Handler = function (Request) {
+        let id = Math.random().toString(36).substring(2);
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let body = { id: id, name: name, email: email };
+        alert(body.id);
+        // fs.writeFileSync(
+        //   filename,
+        //   exampleData
+        //     .map(
+        //       (row) => `${row.id}${separator}${row.name}${separator}${row.age}`
+        //     )
+        //     .join("\n")
+        // );
+      };
+
+      //Отправляем запрос
+      SendRequest("GET", filename, Handler);
+    }
+  </script>
   <body>
     <img src="img/news.png" style="width: 1263px; margin: 0 0 15px -8px" />
     <div class="news" style="margin: 30px">
@@ -97,15 +157,20 @@
       Если хотите быть получать новости, то нажмите на кнопку ниже.
     </h3>
     <button onclick="ShowForm('mail_id')">Подписаться:)</button>
-    <form class="mailing" name="mail" id="mail_id">
-      <input type="text" placeholder="Введите Ваше имя" />
-      <input type="text" placeholder="Введите Ваш email" />
-      <button onclick="SendForm()">Отправить</button>
+    <form class="mailing" id="mail_id">
+      <input type="text" placeholder="Введите Ваше имя" id="name" name="user" />
+      <input
+        type="text"
+        placeholder="Введите Ваш email"
+        id="email"
+        name="email"
+      />
+      <button id="send_btn" onclick="ReadForm('file.txt')">Отправить</button>
     </form>
 
     <footer>
       <!-- низ страницы -->
-      <img src="img/DIA.png" />
+      <a href="#0"><img src="img/DIA.png" /></a>
       <div class="footer_menu">
         <ul style="padding-top: 11px">
           <li>Наш телефон: 8 800 55-35-35</li>
