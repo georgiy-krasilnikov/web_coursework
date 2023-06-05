@@ -1,17 +1,16 @@
 {
-  "name": "csv",
+  "name": "web_coursework",
   "version": "1.0.0",
-  "description": "",
+  "description": "- Установить зависимости\r ```\r npm i\r ```\r - Запустить сервер\r ```\r node index.js\r ```\r или \r ```\r npm run dev\r ```",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-writer": "^1.6.0",
     "express": "^4.18.2",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.2",
+    "query-string": "^8.1.0"
   }
 }

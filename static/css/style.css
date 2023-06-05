@@ -7,6 +7,12 @@ body ul li {
   list-style-type: none;
 }
 
+h3.result {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 header {
   width: 1263px;
   height: 100px;
@@ -184,7 +190,7 @@ body div.news div p {
 }
 
 body button {
-  margin: 0 auto;
+  margin: 10px auto;
   display: block;
   width: 125px;
   height: 35px;

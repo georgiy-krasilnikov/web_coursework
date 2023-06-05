@@ -5,10 +5,7 @@
     <title>Сайт о диабете</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js"></script>
-    <script src="js/file.js"></script>
-    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   </head>
   <!-- описание класса header - шапки веб-сайта -->
   <header>
@@ -31,60 +28,77 @@
     </div>
   </header>
   <script>
-    function SendRequest(r_method, r_path, r_handler) {
-      var Request = new XMLHttpRequest();
-      Request.onreadystatechange = function () {
-        //Если обмен данными завершен
-        if (Request.readyState == 4) {
-          //Передаем управление обработчику пользователя
-          r_handler(Request);
+    $(document).ready(function () {
+      $("#send_btn").click(function () {
+        SetCookie();
+        let data = GetCookie();
+        SendAJAXForm("result", "/news", data);
+        return false;
+      });
+    });
+
+    function ReadEmail() {
+      var xhr;
+      if (window.XMLHttpRequest) {
+        // код для IE7+, Firefox, Chrome, Opera, Safari
+        xhr = new XMLHttpRequest();
+      } else {
+        // код для IE6, IE5
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          document.getElementById("p_email").innerHTML = xhr.responseText;
         }
       };
-
-      // if (r_method.toLowerCase() == "get" && r_args.length > 0)
-      //   r_path += "?" + r_args;
-
-      //Инициализируем соединение
-      Request.open(r_method, r_path, true);
-
-      if (r_method.toLowerCase() == "post") {
-        //Если это POST-запрос
-
-        //Устанавливаем заголовок
-        Request.setRequestHeader(
-          "Content-Type",
-          "application/x-www-form-urlencoded; charset=utf-8"
-        );
-        //Посылаем запрос
-        Request.send(r_args);
-      } else {
-        //Если это GET-запрос
-
-        //Посылаем нуль-запрос
-        Request.send(null);
-      }
+      xhr.open("GET", "email.txt", true); // true - используем АСИНХРОННУЮ передачу
+      xhr.send();
     }
 
-    function ReadForm(filename) {
-      //Создаем функцию обработчик
-      var Handler = function (Request) {
-        let id = Math.random().toString(36).substring(2);
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let body = { id: id, name: name, email: email };
-        alert(body.id);
-        // fs.writeFileSync(
-        //   filename,
-        //   exampleData
-        //     .map(
-        //       (row) => `${row.id}${separator}${row.name}${separator}${row.age}`
-        //     )
-        //     .join("\n")
-        // );
-      };
+    function SendAJAXForm(result, url, data) {
+      $.ajax({
+        url: url, //url страницы
+        type: "GET", //метод отправки
+        dataType: "text", //формат данных
+        data: data,
+        success: function (response) {
+          //Данные отправлены успешно
+          document.getElementById(result).innerHTML =
+            "Полученные данные: user: " +
+            data.user +
+            ", id: " +
+            data.id +
+            ", email: " +
+            data.email;
+            alert("Пользователь " + data.user + " на Вашу почту " + data.email + " было отправлено письмо!");
+        },
+        error: function (response) {
+          // Данные не отправлены
+          document.getElementById(result).innerHTML = "Данные не отправленны";
+        },
+      });
+    }
 
-      //Отправляем запрос
-      SendRequest("GET", filename, Handler);
+    function GetCookie() {
+      let cookie = document.cookie.split("; ");
+      let body = { id: "", user: "", email: "" };
+      for (var i = 0; i < cookie.length; i++) {
+        body.user = cookie[0].split("=")[1];
+        body.id = cookie[1].split("=")[1];
+        body.email = cookie[2].split("=")[1];
+      }
+      return body;
+    }
+
+    function SetCookie() {
+      let id = Math.random().toString(36).substring(2);
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      Name = name;
+      Email = email;
+      document.cookie = "user=" + name;
+      document.cookie = "id=" + id;
+      document.cookie = "email=" + email;
     }
   </script>
   <body>
@@ -154,10 +168,10 @@
     </div>
 
     <h3 style="text-align: center">
-      Если хотите быть получать новости, то нажмите на кнопку ниже.
+      Если хотите получать новости, то нажмите на кнопку ниже.
     </h3>
     <button onclick="ShowForm('mail_id')">Подписаться:)</button>
-    <form class="mailing" id="mail_id">
+    <form class="mailing" id="mail_id" action="" method="get">
       <input type="text" placeholder="Введите Ваше имя" id="name" name="user" />
       <input
         type="text"
@@ -165,8 +179,13 @@
         id="email"
         name="email"
       />
-      <button id="send_btn" onclick="ReadForm('file.txt')">Отправить</button>
+      <button id="send_btn" style="background: white">
+        Отправить
+      </button>
     </form>
+    <h3 class="result" id="result"></h3>
+    <button id="btn" onclick="ReadEmail()">Проверить почтовый ящик</button>
+    <p id="p_email" style="color: black;"></p>
 
     <footer>
       <!-- низ страницы -->
