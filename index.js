@@ -8,6 +8,9 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "static")));
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => res.sendFile(path.join(staticPath, "index.html"))); //главная страница
 
 app.get("/about", (req, res) =>
@@ -19,7 +22,8 @@ app.get("/news", (req, res) =>
 );
 
 app.get("/school", (req, res) =>
-  res.sendFile(path.join(staticPath, "school.html"))
+  res.render('school', { one: 'Новости в мире диабета', two: 'О диабете', items: [ 'Cамоконтроль', 'Питание', 'Физическая активность', 'Инсулинотерапия', 'Гипогликемия: что это?']})
+  // res.sendFile(path.join(staticPath, "school.html"))
 );
 
 app.get("/news/file", (req, res) => //запись в файл
